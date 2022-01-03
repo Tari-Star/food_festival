@@ -1,7 +1,12 @@
 const webpack = require('webpack');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+<<<<<<< HEAD
 // const SWPrecacheWebpackPlugin = require("sw-precache-webpack-plugin");
 // const WebpackPwaManifest = require("webpack-pwa-manifest");
+=======
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
+>>>>>>> develop
 const path = require('path');
 
 const config = {
@@ -12,8 +17,13 @@ const config = {
     tickets: './assets/js/tickets.js'
   },
   output: {
+<<<<<<< HEAD
     filename: '[name].bundle.js',
     path: `${__dirname}/dist`
+=======
+    path: path.join(__dirname + "/dist"),
+    filename: "main.bundle.js"
+>>>>>>> develop
   },
   module: {
     rules: [
@@ -46,6 +56,7 @@ const config = {
     }),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static'
+<<<<<<< HEAD
     })
     // new WebpackPwaManifest({
     //   name: "Food Event",
@@ -61,8 +72,32 @@ const config = {
     //     destination: path.join("assets", "icons")
     //   }]
     // })
+=======
+    }),
+    new WebpackPwaManifest({
+      name: 'Food Event',
+      short_name: 'Foodies',
+      description: 'An app that allows you to view upcoming food events.',
+      start_url: '../index.html',
+      background_color: '#01579b',
+      theme_color: '#ffffff',
+      fingerprints: false,
+      inject: false,
+      icons: [
+        {
+          src: path.resolve('assets/img/icons/icon-512x512.png'),
+          sizes: [96, 128, 192, 256, 384, 512],
+          destination: path.join('assets', 'icons')
+        }
+      ]
+    })
+>>>>>>> develop
   ],
   mode: 'development'
 };
 
+<<<<<<< HEAD
 module.exports = config;
+=======
+module.exports = config;
+>>>>>>> develop
